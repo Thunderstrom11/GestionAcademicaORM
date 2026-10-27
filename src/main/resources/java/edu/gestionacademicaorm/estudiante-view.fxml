@@ -1,16 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="java.edu.gestionacademicaorm.HelloController">
+<VBox spacing="14.0" prefHeight="580.0" prefWidth="820.0"
+      xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="java.edu.gestionacademicaorm.controller.EstudianteController">
     <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
 
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
+    <Label text="Registro de estudiantes">
+        <font><Font name="System Bold" size="18.0" /></font>
+    </Label>
+
+    <GridPane hgap="10.0" vgap="10.0">
+        <columnConstraints>
+            <ColumnConstraints minWidth="80.0" prefWidth="80.0" />
+            <ColumnConstraints hgrow="ALWAYS" prefWidth="270.0" />
+            <ColumnConstraints minWidth="80.0" prefWidth="80.0" />
+            <ColumnConstraints hgrow="ALWAYS" prefWidth="270.0" />
+        </columnConstraints>
+        <children>
+            <Label text="Nombres:" GridPane.rowIndex="0" />
+            <TextField fx:id="txtNombres" promptText="Ej. Ana Lucia"
+                       GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+            <Label text="Apellidos:" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+            <TextField fx:id="txtApellidos" promptText="Ej. Perez Ruiz"
+                       GridPane.columnIndex="3" GridPane.rowIndex="0" />
+
+            <Label text="Correo:" GridPane.rowIndex="1" />
+            <TextField fx:id="txtCorreo" promptText="alguien@uamv.edu.ni"
+                       GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+            <Label text="Carrera:" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <ComboBox fx:id="cmbCarrera" maxWidth="Infinity"
+                      GridPane.columnIndex="3" GridPane.rowIndex="1" />
+        </children>
+    </GridPane>
+
+    <HBox alignment="CENTER_LEFT" spacing="10.0">
+        <children>
+            <Button fx:id="btnGuardar" onAction="#guardar" text="Guardar" />
+            <Button fx:id="btnConsultar" onAction="#consultar" text="Consultar" />
+            <Button fx:id="btnLimpiar" onAction="#limpiar" text="Limpiar" />
+            <Label fx:id="lblEstado" />
+        </children>
+    </HBox>
+
+    <TableView fx:id="tablaEstudiantes" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colId" prefWidth="60.0" text="ID" />
+            <TableColumn fx:id="colNombres" prefWidth="180.0" text="Nombres" />
+            <TableColumn fx:id="colApellidos" prefWidth="180.0" text="Apellidos" />
+            <TableColumn fx:id="colCorreo" prefWidth="240.0" text="Correo" />
+            <TableColumn fx:id="colCarrera" prefWidth="160.0" text="Carrera" />
+        </columns>
+    </TableView>
 </VBox>

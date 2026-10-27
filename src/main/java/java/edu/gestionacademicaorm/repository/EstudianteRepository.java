@@ -31,7 +31,6 @@ public class EstudianteRepository {
                     .getResultList();
         }
     }
-}
 
     public boolean existeCorreo(String correo) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
