@@ -104,7 +104,7 @@ public class EstudianteController {
         txtNombres.requestFocus();
     }
 
-    /** Valida y construye el objeto. Lanza IllegalArgumentException con el mensaje de usuario. */
+
     private Estudiante obtenerEstudianteFormulario() {
         String nombres = txtNombres.getText() == null ? "" : txtNombres.getText().trim();
         String apellidos = txtApellidos.getText() == null ? "" : txtApellidos.getText().trim();
@@ -129,7 +129,6 @@ public class EstudianteController {
         return new Estudiante(nombres, apellidos, correo, carrera);
     }
 
-    /** Baja por la cadena de causas hasta el error real de PostgreSQL. */
     private String causaRaiz(Throwable e) {
         Throwable causa = e;
         while (causa.getCause() != null) causa = causa.getCause();
